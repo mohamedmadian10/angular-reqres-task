@@ -5,6 +5,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
+  CanLoad,
+  Route,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,13 +14,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private authSer:AuthServiceService,private rouer:Router) {}
+  constructor(private authSer:AuthServiceService,private router:Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Promise<boolean> | Observable<boolean> {
     if(this.authSer.isLogedIn()) return true;
     //navigate user to login
-    this.rouer.navigate([''])
+    this.router.navigate([''])
+  }
+//protect unauthenticated urls
+  canLoad(
+    route:Route
+    
+  ): Observable<boolean> | Promise<boolean> | boolean {
+     if (this.authSer.isLogedIn()) return true;
+
+      this.router.navigate(['']);
+
   }
 }

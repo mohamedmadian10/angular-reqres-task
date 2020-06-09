@@ -15,11 +15,9 @@ export class UserEditComponent implements OnInit {
   constructor(private userService:UsersService,@Inject(MAT_DIALOG_DATA) public passedData:any) { }
  user:User;
   ngOnInit(): void {
-    this.user = this.passedData.editetedUser;
-
-    console.log(this.user);
-    
+    this.user = this.passedData.editetedUser;   
   }
+  //update user
   onUpdate(form:NgForm){
     this.userService.updateUser({
       email:form.value.email,
@@ -29,8 +27,6 @@ export class UserEditComponent implements OnInit {
       id:this.user.id
       
     })
-    // console.log(form.value)
-
   }
 
 }

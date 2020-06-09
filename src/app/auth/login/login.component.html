@@ -49,10 +49,15 @@
       </mat-form-field>
 
       <mat-checkbox color="primary" ngModel name="agree">Remember Me</mat-checkbox>
-      <button [disabled]="loginForm.invalid" class="login_button" type="submit" mat-raised-button>
-        Login
+      <button *ngIf="!isLoading"
+        [disabled]="loginForm.invalid" 
+        class="login_button"
+        type="submit"
+          mat-raised-button>
+          Login
       </button>
       <a class="forger_password" rouerLink="">Forget Password?</a>
     </form>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </section>
 </div>
