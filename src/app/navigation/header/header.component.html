@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div *ngIf="islogged">
+    <a routerLink="/">
+      <img class="logo" src="../../../assets/bg-01.jpg" alt="logo"
+    /></a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="10px" class="nav_items">
+      <li *ngIf="!islogged"><a routerLink="">Login</a></li>
+      <li *ngIf="islogged"><a routerLink="/users">users</a></li>
+      <li *ngIf="islogged">
+        <a class="logout_item" (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+.card__container{
+    width: 100%;
+    padding: 20px;
+}
+mat-card{
+    min-width: 400px;
+    margin: 5px;
+   
+}
+mat-card img{
+     background:-webkit-linear-gradient(top,lightgray,white);
+    box-shadow:gray -5px -5px 10px;
+}
+
+.btn{
+    margin-top: 18px;
+}
