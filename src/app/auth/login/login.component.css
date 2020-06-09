@@ -1,6 +1,4 @@
-*{
-  box-sizing: border-box;
-}
+
 .login_wrapper {
   width: 100%;
   min-height: 100vh;
@@ -18,7 +16,7 @@
   bottom: 0;
   right: 0;
   z-index: -1;
-  background-image: url("../../assets/bg-01.jpg");
+  background-image: url("../../../assets/bg-01.jpg");
   background-size: cover;
   opacity: 0.25;
 }

@@ -16,14 +16,12 @@ user:User = {email:'',first_name:'',last_name:'',avatar:''};
   
   ngOnInit(): void {
     this.user = this.passedData.newUser;
-    console.log(this.user);
+    // console.log(this.user);
 
   }
-
+  
   onCreate(){
-    this.userService.addUser(this.user).subscribe(user=>{
-      console.log('user logged succesfully',user)
-    })
+    this.userService.addUser(this.user)
 
   }
 

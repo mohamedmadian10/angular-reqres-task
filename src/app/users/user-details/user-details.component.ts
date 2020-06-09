@@ -20,21 +20,17 @@ export class UserDetailsComponent implements OnInit {
     private router:Router
     ) { }
   ngOnInit(): void {
+    //get current user Id from url
     let id = this.aRoute.snapshot.params['id'];
-    console.log(id)
+    // console.log(id)
+    // get user details
     this.userService.getUserDetails(id).subscribe((user:any)=>{
-      console.log(user);
       this.user = user['data'];
-      console.log(user);
-
-      console.log(this.user,'fiest')
-
     })
   }
 
 
-  onOpenEdit(){
-    
+  onOpenEdit(){    
       const dialogRef = this.dialog.open(UserEditComponent,{
         width:'600px',
         height:'600px',
@@ -48,26 +44,8 @@ export class UserDetailsComponent implements OnInit {
           this.userService.updateUser(this.user).subscribe((updated:any)=>{
             this.user = updated
             console.log('updated',updated)
-            // this.router.navigate(['/users'])
           })
-          
-          
-        }else{
-          
         }
       });
   }
-
-  //deleting user
-  onDeleteUser(){
-    console.log(this.user.id)
-    if(this.user){
-      this.userService.deleteUser(this.user.id).subscribe(data=>{
-        console.log('deleted',data)
-        this.router.navigate(['/users'])
-      })
-    }
-    
-  }
-
 }

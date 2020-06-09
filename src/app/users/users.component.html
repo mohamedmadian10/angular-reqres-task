@@ -20,6 +20,7 @@ fxLayout.lt-md="column"
         <img mat-card-image [src]="user.avatar" [alt]="user.email" />
         <mat-card-actions>
           <a mat-raised-button [routerLink]="['/users', user.id]" color="primary">show Details</a>
+          <button mat-raised-button color="warn" (click)="onDelet(user)">Delete</button>
         </mat-card-actions>
       </mat-card>
       
