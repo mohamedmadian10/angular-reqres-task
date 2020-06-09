@@ -1,0 +1,14 @@
+<div *ngIf="user">
+    <mat-card >
+        <mat-card-header>
+          <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="user.avatar" [alt]="user.email" />
+       
+        <mat-card-actions>
+          <a mat-raised-button (click)="onOpenEdit()" color="primary">Edit {{user.first_name}}</a>
+          <a mat-raised-button (click)="onDeleteUser()" color="warn">Delete {{user.first_name}}</a>
+        </mat-card-actions>
+      </mat-card>
+      
+</div>

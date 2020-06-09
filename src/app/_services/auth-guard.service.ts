@@ -19,6 +19,6 @@ export class AuthGuardService implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     if(this.authSer.isLogedIn()) return true;
     //navigate user to login
-    this.rouer.navigate(['/login'])
+    this.rouer.navigate([''])
   }
 }

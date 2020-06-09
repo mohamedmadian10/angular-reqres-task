@@ -15,12 +15,28 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
+import { HeaderComponent } from './navigation/header/header.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserCreateComponent } from './users/user-create/user-create.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UsersComponent
+    UsersComponent,
+    HeaderComponent,
+    UserDetailsComponent,
+    UserEditComponent,
+    UserCreateComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -33,7 +49,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDialogModule
     
   ],
   providers: [],
