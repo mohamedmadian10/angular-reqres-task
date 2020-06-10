@@ -23,8 +23,7 @@ import { ConfirmDialoge } from '../confirm-dialog.component';
   imports: [
     SharedModule,
     UsersRoutingModule,
-   
-
-  ]
+  ],
+  entryComponents:[UserCreateComponent]
 })
 export class UsersModule { }

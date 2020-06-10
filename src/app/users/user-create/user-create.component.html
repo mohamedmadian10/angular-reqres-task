@@ -2,62 +2,63 @@
 <h1 mat-dialog-title>create user  </h1>
 <mat-dialog-content>
 <form #createForm="ngForm"
-    (ngSubmit)="onCreate()"
-    fxLayout="column" 
-    fxLayoutAlign="center center"
-    fxLayoutGap="10px">
-<mat-form-field>
-  <input
-   matInput 
-   placeholder="first Name"
-    required
-    name="first_name"
-    [(ngModel)]="user.first_name"
-    type="text"
-     />
-  
-</mat-form-field>
-<mat-form-field>
-    <input
-     matInput 
-     placeholder="last Name"
-      required
-      name="last_name"
-   [(ngModel)]="user.last_name"
+        (ngSubmit)="onCreate()"
+        fxLayout="column" 
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+    <mat-form-field>
+      <input
+      matInput 
+      placeholder="first Name"
+        required
+        name="first_name"
+        [(ngModel)]="user.first_name"
+        type="text"
+        />
+      
+    </mat-form-field>
+    <mat-form-field>
+        <input
+        matInput 
+        placeholder="last Name"
+          required
+          name="last_name"
+      [(ngModel)]="user.last_name"
 
-      type="text"
-       />
-    
-  </mat-form-field>
-  <mat-form-field>
-    <input
-     matInput 
-     placeholder="Email"
-      required
-      name="email"
-   [(ngModel)]="user.email"
+          type="text"
+          />
+        
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput 
+        placeholder="Email"
+          required
+          name="email"    
+      [(ngModel)]="user.email"
+        #email="ngModel"
+          type="email"
+          email
+          />
+          <mat-error  *ngIf="email.hasError('required')">Field must not be empty</mat-error>
+          <mat-error *ngIf="!email.hasError('required')">E-mail is invalid</mat-error>
+        
+      </mat-form-field>
+    <mat-form-field>
+      <input 
+      matInput
+      placeholder="Avatar"
+      name="avatar"
+      [(ngModel)]="user.avatar"
+        type="text"
+        required 
+        #avatar
+        /> 
+    </mat-form-field>
 
-     #email="ngModel"
-      type="email"
-       />
-       <mat-error  *ngIf="email.hasError('required')">Field must not be empty</mat-error>
-       <mat-error *ngIf="!email.hasError('required')">E-mail is invalid</mat-error>
-    
-  </mat-form-field>
-<mat-form-field>
-  <input 
-  matInput
-   placeholder="Avatar"
-   name="avatar"
-   [(ngModel)]="user.avatar"
-    type="text"
-    required 
-    /> 
-</mat-form-field>
-
-    <button [disabled]="!createForm.valid" mat-raised-button color="warn" [mat-dialog-close]="true">Save</button>
-    <button mat-raised-button type="button"  [mat-dialog-close]="false">cancel</button>
-  
+        <button [disabled]="!createForm.valid" mat-raised-button color="warn" [mat-dialog-close]="true">Save</button>
+        <button mat-raised-button type="button"  [mat-dialog-close]="false">cancel</button>
+      
 </form>
 </mat-dialog-content>
 

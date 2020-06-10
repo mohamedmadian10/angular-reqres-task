@@ -11,12 +11,14 @@ import { HeaderComponent } from './navigation/header/header.component';
 
 import { Material } from './material.module/material.module.module';
 import { LoginComponent } from './auth/login/login.component';
+import { SideNavComponent } from './navigation/side-nav/side-nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SideNavComponent,
     LoginComponent
   ],
   imports: [

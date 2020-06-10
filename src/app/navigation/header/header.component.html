@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
   <div *ngIf="islogged">
-    <a routerLink="/">
+    <a routerLink="/users">
       <img class="logo" src="../../../assets/bg-01.jpg" alt="logo"
     /></a>
   </div>
