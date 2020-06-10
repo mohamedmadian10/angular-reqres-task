@@ -1,0 +1,17 @@
+<mat-nav-list>
+    <a *ngIf="!islogged" mat-list-item routerLink="" (click)="onCloseSidenav()">
+      <mat-icon>perm_identity</mat-icon>
+      <span class="nav_list_item">Login</span>
+    </a>
+    <a *ngIf="islogged" mat-list-item routerLink="/users" (click)="onCloseSidenav()">
+      <mat-icon>people</mat-icon>
+      <span class="nav_list_item">users</span>
+    </a>
+    <mat-list-item *ngIf="islogged">
+      <button mat-icon-button (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span class="nav_list_item">Logout</span>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+  

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,Output,EventEmitter } from '@angular/core';
 import { AuthServiceService } from 'src/app/_services/auth-service.service';
 import { Subscription } from 'rxjs';
 
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   // isAuth = false;
   // authSub:Subscription;
+  @Output()toggleNav =  new EventEmitter();
   constructor(private authService:AuthServiceService) { }
 
   ngOnInit(): void {
@@ -19,6 +20,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   get islogged(){
     return this.authService.isLogedIn()
+  }
+
+  onToggle(){
+    this.toggleNav.emit()
   }
   onLogout(){
     this.authService.logOut();

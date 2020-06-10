@@ -33,11 +33,13 @@
     <input
      matInput 
      placeholder="Email"
-      required
+      
       name="email"
       [(ngModel)]="user.email"
      #email="ngModel"
       type="email"
+      required
+      email
        />
        <mat-error  *ngIf="email.hasError('required')">Field must not be empty</mat-error>
        <mat-error *ngIf="!email.hasError('required')">E-mail is invalid</mat-error>
@@ -51,6 +53,7 @@
    [(ngModel)]="user.avatar"
     type="text"
     required 
+    #avatar
     /> 
 </mat-form-field>
 

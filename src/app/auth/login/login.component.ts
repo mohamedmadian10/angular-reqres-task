@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit ,OnDestroy{
 
       console.log(data)
     },err=>{
-      console.log(err)
+      console.log(err.error.error)
+      this.uiService.showSnackBar(err.error.error,null,3000,'top')
+
     })
   
     // form.reset();
