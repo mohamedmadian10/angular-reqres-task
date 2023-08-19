@@ -1,0 +1,33 @@
+<h2> {{ passedData.mode === 'edit' ? 'Update User' : 'Add User' }}</h2>
+<!-- the start of dynamic form -->
+<div *ngIf="passedData" class="mat-dialog-content" mat-dialog-content>
+  <form mat-form [formGroup]="userDynamictForm">
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="email">
+      <mat-error *ngIf="userDynamictForm.get('email')?.hasError('required')">email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="first_name"  placeholder="first_name">
+      <mat-error *ngIf="userDynamictForm.get('first_name')?.hasError('required')">first_name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="last_name" placeholder="last_name">
+      <mat-error *ngIf="userDynamictForm.get('last_name')?.hasError('required')">last_name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="avatar" placeholder="avatar">
+      <mat-error *ngIf="userDynamictForm.get('avatar')?.hasError('required')">avatar is required</mat-error>
+    </mat-form-field>
+  </form>
+  <div class="mat-dialog-actions" mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-button [disabled]="!userDynamictForm.valid" color="primary"
+      [mat-dialog-close]=" passedData.mode === 'edit' ? {mode: 'Update', user:userDynamictForm.getRawValue() } :  {mode: 'Add', user:userDynamictForm.getRawValue() } ">
+      {{ passedData.mode === 'edit' ? 'Update' : 'Add' }}
+    </button>
+  </div>
+  <!-- the End of dynamic form -->
+</div>

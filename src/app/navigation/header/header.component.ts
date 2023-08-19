@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { AuthServiceService } from 'src/app/_services/auth-service.service';
 import { Subscription } from 'rxjs';
 
@@ -7,30 +7,33 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  // isAuth = false;
-  // authSub:Subscription;
-  @Output()toggleNav =  new EventEmitter();
-  constructor(private authService:AuthServiceService) { }
+export class HeaderComponent implements OnInit {
 
-  ngOnInit(): void {
-    // this.authSub = this.authService.authenticationChange.subscribe(authStateChange=>{
-    //   this.isAuth = authStateChange;
-    // })
-  }
-  get islogged(){
+  @Output() toggleNav = new EventEmitter();
+  /**
+   * constructor
+   * @param {AuthServiceService} authService 
+   */
+  constructor(private authService: AuthServiceService) { }
+
+  public ngOnInit(): void { }
+  get islogged(): boolean {
     return this.authService.isLogedIn()
   }
 
-  onToggle(){
+  /**
+   * onToggle
+   * @description function to toggle nav bar
+   */
+  public onToggle(): void {
     this.toggleNav.emit()
   }
-  onLogout(){
+  /**
+   * onLogout
+   * @description function to handle logout
+   */
+  public onLogout(): void {
     this.authService.logOut();
   }
-  
-  //unSubscribe on auth state to protect memory leak
-  ngOnDestroy(){
-    // this.authSub.unsubscribe()
-  }
+
 }

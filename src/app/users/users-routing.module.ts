@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes , RouterModule} from '@angular/router';
-import { UsersComponent } from './users.component';
-import { AuthGuardService } from '../_services/auth-guard.service';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { Routes, RouterModule } from '@angular/router';
+import { UsersComponent } from './users-list/users.component';
 
 const routes: Routes = [
-       {path: '',component:UsersComponent},
-       {path:':id',component: UserDetailsComponent}
-
+  { path: '', component: UsersComponent },
 ];
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 
-export class UsersRoutingModule {}
+export class UsersRoutingModule { }

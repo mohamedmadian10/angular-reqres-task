@@ -3,38 +3,70 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../_models/user.model';
 import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
+/** UsersService */
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-private baseUrl:string ="https://reqres.in/api/users";
+  private baseUrl: string = environment.baseUrl;
 
-  constructor(private http:HttpClient) { }
-  getAllUsers(){
+  /**
+   * constructor
+   * @param {HttpClient} http 
+   */
+  constructor(private http: HttpClient) { }
+
+  /**
+   * getAllUsers
+   * @description function to get All users
+   * @returns  Observable<Object>
+   */
+  getAllUsers(): Observable<Object> {
     return this.http.get(this.baseUrl);
   }
-  //get user details
-  getUserDetails(userId):Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}/${userId}`).pipe(tap(user=>{
-       return user
+
+  /**
+   * getUserDetails
+   * @description function to get user details
+   * @param userId 
+   * @returns {Observable<User>}
+   */
+  getUserDetails(userId): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/${userId}`).pipe(tap(user => {
+      return user
     }))
   }
 
-  //update user
-
-  updateUser(user:User){
-    return this.http.put(`${this.baseUrl}/${user.id}`,user)
+  /**
+    * updateUser
+    * @description function to update user details
+    * @param {User} user
+    * @returns {Observable<Object>}
+    */
+  updateUser(id: number, user: User): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, user)
   }
 
-  //creating user
-  addUser(user:User){
-    return this.http.post(this.baseUrl,user);
+  /**
+   * addUser
+   * @param {User} user 
+   * @description function to Add user
+   * @returns Observable<Object>
+   */
+  addUser(user: User): Observable<Object> {
+    return this.http.post(this.baseUrl, user);
 
   }
 
   //delete user
-  deleteUser(id:number){
+  /**
+   * deleteUser
+   * @param {number} id 
+   * @returns {Observable<Object>}
+   */
+  deleteUser(id: number): Observable<Object> {
     return this.http.delete(`${this.baseUrl}/${id}`)
   }
 }

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  authUrl: "https://reqres.in/api/login",
+  baseUrl: "https://reqres.in/api/users"
 };
 
 /*
