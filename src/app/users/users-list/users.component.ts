@@ -33,7 +33,6 @@ export class UsersComponent implements OnInit {
   constructor(
     private userService: UsersService,
     private dialog: MatDialog,
-    private router: Router,
     private uiService: UiService
   ) { }
   ngOnInit() {

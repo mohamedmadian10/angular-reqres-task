@@ -7,6 +7,7 @@ import { AuthServiceService } from './_services/auth-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  title: string ='reqres-app'
   /**
    * constructor
    * @param authService 
